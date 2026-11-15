@@ -33,6 +33,7 @@ metadata/_custom_type_script = "uid://b6bormnemrwb1"
 
 [sub_resource type="Resource" id="Resource_f1jju"]
 script = ExtResource("4_5mmbw")
+dialogues_path = null
 dialogue_file_name = "dialogue_test.json"
 conditions = Array[ExtResource("5_qgisr")]([SubResource("Resource_5mmbw")])
 metadata/_custom_type_script = "uid://cskstrfvyqie3"
@@ -44,6 +45,7 @@ metadata/_custom_type_script = "uid://b6bormnemrwb1"
 
 [sub_resource type="Resource" id="Resource_7hu3b"]
 script = ExtResource("4_5mmbw")
+dialogues_path = null
 priority = 1
 dialogue_file_name = "dialogue_test_2.json"
 conditions = Array[ExtResource("5_qgisr")]([SubResource("Resource_lxfvd")])
