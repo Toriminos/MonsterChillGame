@@ -1,0 +1,133 @@
+[gd_scene format=3 uid="uid://bl2rxbpjxuu7x"]
+
+[ext_resource type="Script" uid="uid://cr07u8jjm43um" path="res://scripts/player/player.gd" id="1_8afob"]
+[ext_resource type="Script" uid="uid://bcg3ffum4tsc" path="res://scripts/ui/player_ui_manager.gd" id="2_dovo2"]
+[ext_resource type="Script" uid="uid://fsxwgk84x70c" path="res://scripts/ui/dialogue_manager.gd" id="3_gmlin"]
+[ext_resource type="Script" uid="uid://b03n6ogxwdsk0" path="res://scripts/inventory/inventory.gd" id="4_lvxji"]
+[ext_resource type="Script" uid="uid://b4opql3na2fqc" path="res://scripts/inventory/item_limitation.gd" id="5_75vfm"]
+[ext_resource type="Resource" uid="uid://bfskyxo1mcpla" path="res://ressources/items/wood.tres" id="6_0owmy"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_u8vuu"]
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_u8vuu"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_dovo2"]
+load_path = "res://.godot/imported/UiBackground.png-0652a94a7faf917d085cecf36b2e26d0.ctex"
+
+[sub_resource type="Resource" id="Resource_75vfm"]
+script = ExtResource("5_75vfm")
+item = ExtResource("6_0owmy")
+limited_to = 5
+metadata/_custom_type_script = "uid://b4opql3na2fqc"
+
+[node name="Player" type="CharacterBody3D" unique_id=1945553728 node_paths=PackedStringArray("player_camera", "player_mesh", "interaction_cast", "player_ui", "inventory")]
+script = ExtResource("1_8afob")
+player_camera = NodePath("PlayerCamera")
+player_mesh = NodePath("PlayerMesh")
+interaction_cast = NodePath("PlayerCamera/InteractionCast")
+player_ui = NodePath("CanvasLayer/PlayerUI")
+inventory = NodePath("Inventory")
+min_XClamp = -0.6607963267949001
+max_XClamp = 0.5472036732050998
+
+[node name="PlayerCollision" type="CollisionShape3D" parent="." unique_id=1834844843]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+shape = SubResource("CapsuleShape3D_u8vuu")
+
+[node name="PlayerMesh" type="CSGMesh3D" parent="." unique_id=1682887359]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+mesh = SubResource("CapsuleMesh_u8vuu")
+
+[node name="PlayerCamera" type="Camera3D" parent="." unique_id=8677611]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.85, 0)
+
+[node name="InteractionCast" type="RayCast3D" parent="PlayerCamera" unique_id=1864480470]
+target_position = Vector3(0, 0, -2)
+debug_shape_custom_color = Color(0.6857328, 3.1044335e-06, 5.7756904e-07, 1)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1638187585]
+
+[node name="PlayerUI" type="Control" parent="CanvasLayer" unique_id=1004145597 node_paths=PackedStringArray("dialogue_manager", "interactable_text")]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+script = ExtResource("2_dovo2")
+dialogue_manager = NodePath("DialogueContainer")
+interactable_text = NodePath("InteractableContainer/InteractableText")
+
+[node name="InteractableContainer" type="MarginContainer" parent="CanvasLayer/PlayerUI" unique_id=788805705]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="InteractableText" type="Label" parent="CanvasLayer/PlayerUI/InteractableContainer" unique_id=1557024542]
+layout_mode = 2
+size_flags_horizontal = 4
+
+[node name="DialogueContainer" type="MarginContainer" parent="CanvasLayer/PlayerUI" unique_id=611099877 node_paths=PackedStringArray("dialogue_text", "dialogue_cooldown")]
+visible = false
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -234.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 40
+script = ExtResource("3_gmlin")
+dialogue_text = NodePath("NinePatchRect/MarginContainer/DialogueTextLabel")
+dialogue_cooldown = NodePath("NinePatchRect/MarginContainer/DialogueCooldown")
+
+[node name="NinePatchRect" type="NinePatchRect" parent="CanvasLayer/PlayerUI/DialogueContainer" unique_id=1848574472]
+texture_filter = 1
+layout_mode = 2
+texture = SubResource("CompressedTexture2D_dovo2")
+patch_margin_left = 44
+patch_margin_top = 44
+patch_margin_right = 44
+patch_margin_bottom = 44
+axis_stretch_horizontal = 1
+axis_stretch_vertical = 1
+
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/PlayerUI/DialogueContainer/NinePatchRect" unique_id=1309698381]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 44
+theme_override_constants/margin_top = 44
+theme_override_constants/margin_right = 44
+theme_override_constants/margin_bottom = 44
+
+[node name="DialogueTextLabel" type="RichTextLabel" parent="CanvasLayer/PlayerUI/DialogueContainer/NinePatchRect/MarginContainer" unique_id=663688984]
+layout_mode = 2
+bbcode_enabled = true
+
+[node name="DialogueCooldown" type="Timer" parent="CanvasLayer/PlayerUI/DialogueContainer/NinePatchRect/MarginContainer" unique_id=1266906642]
+process_callback = 0
+wait_time = 0.1
+one_shot = true
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer/PlayerUI/DialogueContainer/NinePatchRect" unique_id=793720680]
+z_index = -1
+layout_mode = 0
+offset_right = 1112.0
+offset_bottom = 194.0
+color = Color(0.30692267, 0.3069227, 0.3069227, 1)
+
+[node name="Inventory" type="Node" parent="." unique_id=1944868392]
+script = ExtResource("4_lvxji")
+limitations = Array[ExtResource("5_75vfm")]([SubResource("Resource_75vfm")])
+metadata/_custom_type_script = "uid://b03n6ogxwdsk0"

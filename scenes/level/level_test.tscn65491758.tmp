@@ -1,0 +1,119 @@
+[gd_scene format=3 uid="uid://qgqjjert4wbo"]
+
+[ext_resource type="Texture2D" uid="uid://bu2y7vt3voh54" path="res://textures/floor.png" id="1_gwfce"]
+[ext_resource type="PackedScene" uid="uid://bl2rxbpjxuu7x" path="res://scenes/player/player.tscn" id="2_205xb"]
+[ext_resource type="Script" uid="uid://cs65f6ieg8ky7" path="res://scripts/interactables/fatigue_interactable.gd" id="2_f7pjk"]
+[ext_resource type="Script" uid="uid://858xnkkuog7r" path="res://scripts/interactables/dialogue_interactable.gd" id="3_f7pjk"]
+
+[sub_resource type="Environment" id="Environment_gwfce"]
+background_color = Color(1, 0, 0, 1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_gwfce"]
+size = Vector3(20, 1, 20)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_mci3o"]
+shading_mode = 0
+albedo_texture = ExtResource("1_gwfce")
+uv1_scale = Vector3(20, 20, 1)
+texture_filter = 0
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_205xb"]
+size = Vector3(1, 5, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_gwfce"]
+shading_mode = 0
+albedo_texture = ExtResource("1_gwfce")
+texture_filter = 1
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_f7pjk"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ts4x7"]
+shading_mode = 0
+albedo_color = Color(0.8093341, 0, 0.17193738, 1)
+albedo_texture = ExtResource("1_gwfce")
+texture_filter = 1
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_r57e1"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_f7pjk"]
+shading_mode = 0
+albedo_color = Color(0, 0.85498494, 0.20977685, 1)
+albedo_texture = ExtResource("1_gwfce")
+texture_filter = 1
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_ts4x7"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_r57e1"]
+shading_mode = 0
+albedo_color = Color(0.5126551, 0.7177577, 1, 1)
+albedo_texture = ExtResource("1_gwfce")
+texture_filter = 1
+
+[node name="level_test" type="Node3D" unique_id=411006040]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=92111687]
+environment = SubResource("Environment_gwfce")
+
+[node name="Plateforme" type="StaticBody3D" parent="." unique_id=592715674]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Plateforme" unique_id=2124854915]
+shape = SubResource("BoxShape3D_gwfce")
+
+[node name="CSGBox3D" type="CSGBox3D" parent="Plateforme" unique_id=2104885552]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.023396015, 0, 0)
+size = Vector3(20, 1, 20)
+material = SubResource("StandardMaterial3D_mci3o")
+
+[node name="Pilar" type="StaticBody3D" parent="." unique_id=1358543333]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.5, 3, 0.5)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Pilar" unique_id=1027089575]
+shape = SubResource("BoxShape3D_205xb")
+
+[node name="CSGBox3D" type="CSGBox3D" parent="Pilar" unique_id=1238460392]
+size = Vector3(1, 5, 1)
+material = SubResource("StandardMaterial3D_gwfce")
+
+[node name="cost_fatigue" type="StaticBody3D" parent="." unique_id=438971179]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.5, 1, -5.5)
+script = ExtResource("2_f7pjk")
+add_x_to_fatigue = 5
+one_time_interaction = true
+can_interact_text = "Intéragir"
+cannot_interact_text = "Ne peut pas intéragir"
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="cost_fatigue" unique_id=1101826161]
+shape = SubResource("BoxShape3D_f7pjk")
+
+[node name="CSGBox3D" type="CSGBox3D" parent="cost_fatigue" unique_id=191841951]
+material = SubResource("StandardMaterial3D_ts4x7")
+
+[node name="reset_fatigue" type="StaticBody3D" parent="." unique_id=161095753]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.5, 1, -3.5)
+script = ExtResource("2_f7pjk")
+add_x_to_fatigue = -5
+can_interact_text = "Interagir"
+cannot_interact_text = "Ne peut pas intéragir"
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="reset_fatigue" unique_id=686468657]
+shape = SubResource("BoxShape3D_r57e1")
+
+[node name="CSGBox3D" type="CSGBox3D" parent="reset_fatigue" unique_id=1071131493]
+material = SubResource("StandardMaterial3D_f7pjk")
+
+[node name="dialogue_test" type="StaticBody3D" parent="." unique_id=724831119]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.5, 1, -7.5)
+script = ExtResource("3_f7pjk")
+dialogue_file_name = "dialogue_test"
+can_interact_text = "Parler"
+cannot_interact_text = "Ne peut pas parler"
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="dialogue_test" unique_id=684959792]
+shape = SubResource("BoxShape3D_ts4x7")
+
+[node name="CSGBox3D" type="CSGBox3D" parent="dialogue_test" unique_id=1512595324]
+material = SubResource("StandardMaterial3D_r57e1")
+
+[node name="Player" parent="." unique_id=1945553728 instance=ExtResource("2_205xb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.8415556, 1.1077439, -0.6290624)
+min_XClamp = -1.23359265358979

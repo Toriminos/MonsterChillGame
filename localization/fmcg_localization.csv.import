@@ -1,0 +1,19 @@
+[remap]
+
+importer="csv_translation"
+type="Translation"
+uid="uid://oaan3q5xgcvk"
+
+[deps]
+
+files=["res://localization/fmcg_localization.english.translation", "res://localization/fmcg_localization.french.translation"]
+
+source_file="res://localization/fmcg_localization.csv"
+dest_files=["res://localization/fmcg_localization.english.translation", "res://localization/fmcg_localization.french.translation"]
+
+[params]
+
+compress=1
+delimiter=0
+unescape_keys=false
+unescape_translations=true

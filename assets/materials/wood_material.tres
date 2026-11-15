@@ -1,0 +1,7 @@
+[gd_resource type="StandardMaterial3D" format=3 uid="uid://4l5bfix45l5m"]
+
+[ext_resource type="Texture2D" uid="uid://beuexjigmapme" path="res://icon.svg" id="1_ktg8k"]
+
+[resource]
+albedo_texture = ExtResource("1_ktg8k")
+uv1_triplanar = true

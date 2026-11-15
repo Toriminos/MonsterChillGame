@@ -1,0 +1,26 @@
+{
+	"start" : {
+		"localization_id" : "DIALOGUE_TEST2_start",
+		"sound" : "",
+		"animation" : "",
+		"next" : "A",
+		"translation_intent" : "<- Used to help translators (more information)"
+	},
+	"A" : {
+		"localization_id" : "DIALOGUE_TEST2_a",
+		"sound" : "",
+		"animation" : "",
+		"next" : "end",
+		"translation_intent" : ""
+	},
+	"end" : {
+		"localization_id" : "DIALOGUE_TEST2_end",
+		"sound" : "",
+		"animation" : "",
+		"next" : "",
+		"flags" : {
+			"test" : true	
+		},
+		"translation_intent" : ""
+	}
+}

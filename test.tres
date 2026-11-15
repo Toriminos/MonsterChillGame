@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="dialogue_branch" format=3 uid="uid://cktawsktxyerv"]
+
+[ext_resource type="Script" uid="uid://cuenndduoq1vf" path="res://scripts/ressources/conditions/conditions.gd" id="2_h7yuw"]
+[ext_resource type="Script" uid="uid://cskstrfvyqie3" path="res://scripts/ressources/dialogue/dialogue_branch.gd" id="2_ofhgo"]
+[ext_resource type="Script" uid="uid://b6bormnemrwb1" path="res://scripts/ressources/conditions/condition_flag.gd" id="3_wow46"]
+
+[sub_resource type="Resource" id="Resource_wow46"]
+script = ExtResource("3_wow46")
+metadata/_custom_type_script = "uid://b6bormnemrwb1"
+
+[resource]
+script = ExtResource("2_ofhgo")
+conditions = Array[ExtResource("2_h7yuw")]([SubResource("Resource_wow46")])
+metadata/_custom_type_script = "uid://cskstrfvyqie3"

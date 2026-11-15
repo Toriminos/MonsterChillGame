@@ -1,0 +1,28 @@
+[gd_scene format=3 uid="uid://qgqjjert4wbo"]
+
+[ext_resource type="Texture2D" uid="uid://bu2y7vt3voh54" path="res://textures/floor.png" id="1_gwfce"]
+[ext_resource type="PackedScene" uid="uid://bl2rxbpjxuu7x" path="res://scenes/player/player.tscn" id="2_205xb"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_eigyi"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_mci3o"]
+albedo_texture = ExtResource("1_gwfce")
+uv1_scale = Vector3(20, 20, 1)
+
+[node name="level_test" type="Node3D" unique_id=411006040]
+
+[node name="Plateforme" type="StaticBody3D" parent="." unique_id=592715674]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Plateforme" unique_id=2124854915]
+shape = SubResource("BoxShape3D_eigyi")
+
+[node name="CSGBox3D" type="CSGBox3D" parent="Plateforme" unique_id=2104885552]
+size = Vector3(20, 1, 20)
+material = SubResource("StandardMaterial3D_mci3o")
+
+[node name="Player" parent="." unique_id=1945553728 instance=ExtResource("2_205xb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.8415556, 0.5375786, -0.6290624)
+sensitivity_hori = 0.1
+sensitivity_vert = 0.1
+min_XClamp = 0.0
+max_XClamp = 0.0

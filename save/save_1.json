@@ -1,0 +1,8 @@
+{
+	"fatigue": 0,
+	"flags": {
+		"test": true,
+		"test_2": true,
+		"test_3": true
+	}
+}

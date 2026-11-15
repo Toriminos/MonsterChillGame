@@ -1,0 +1,84 @@
+[gd_scene format=3 uid="uid://chjtw0l1rh1mn"]
+
+[ext_resource type="Material" uid="uid://dbmkynp7dc71k" path="res://assets/materials/test_material.tres" id="1_e4xrh"]
+[ext_resource type="Material" uid="uid://4l5bfix45l5m" path="res://assets/materials/wood_material.tres" id="2_uenhd"]
+
+[node name="Node" type="Node3D" unique_id=1748871088]
+
+[node name="Floor" type="CSGBox3D" parent="." unique_id=1141547625]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.0097656, 0, -3.902832)
+use_collision = true
+size = Vector3(36.01953, 1, 32.805664)
+material = ExtResource("1_e4xrh")
+
+[node name="Woods" type="Node3D" parent="." unique_id=1685578729]
+
+[node name="CSGBox3D" type="CSGBox3D" parent="Woods" unique_id=1030668396]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.829193, 3, 3.0752869)
+size = Vector3(1, 5, 9.72467)
+material = ExtResource("2_uenhd")
+
+[node name="CSGBox3D3" type="CSGBox3D" parent="Woods" unique_id=2135489120]
+transform = Transform3D(0.83766156, 0, 0.54618967, 0, 1, 0, -0.54618967, 0, 0.83766156, 11.165363, 3, -6.089457)
+size = Vector3(1, 5, 9.72467)
+material = ExtResource("2_uenhd")
+
+[node name="CSGBox3D4" type="CSGBox3D" parent="Woods" unique_id=1002244545]
+transform = Transform3D(0.5497812, 0, 0.8353088, 0, 1, 0, -0.8353088, 0, 0.5497812, 5.487778, 3, -12.223553)
+size = Vector3(1, 5, 6.9903107)
+material = ExtResource("2_uenhd")
+
+[node name="CSGBox3D5" type="CSGBox3D" parent="Woods" unique_id=325072722]
+transform = Transform3D(0.68064415, 0, 0.73261416, 0, 1, 0, -0.73261416, 0, 0.68064415, 0.9581449, 3, -15.67105)
+size = Vector3(1, 5, 4.650543)
+material = ExtResource("2_uenhd")
+
+[node name="CSGBox3D14" type="CSGBox3D" parent="Woods" unique_id=2100962025]
+transform = Transform3D(0.45798257, 0, 0.8889612, 0, 1, 0, -0.8889612, 0, 0.45798257, -2.899914, 3, -18.385738)
+size = Vector3(1, 5, 4.650543)
+material = ExtResource("2_uenhd")
+
+[node name="CSGBox3D2" type="CSGBox3D" parent="Woods" unique_id=638332503]
+transform = Transform3D(0.5142449, 0, -0.85764337, 0, 1, 0, 0.85764337, 0, 0.5142449, 9.97, 3, 10.526)
+size = Vector3(1, 5, 8.437622)
+material = ExtResource("2_uenhd")
+
+[node name="CSGBox3D6" type="CSGBox3D" parent="Woods" unique_id=504347083]
+transform = Transform3D(-0.34840843, 0, -0.93734276, 0, 1, 0, 0.93734276, 0, -0.34840843, 1.998265, 3, 11.292191)
+size = Vector3(1, 5, 8.437622)
+material = ExtResource("2_uenhd")
+
+[node name="CSGBox3D7" type="CSGBox3D" parent="Woods" unique_id=936954858]
+transform = Transform3D(0.191066, 0, -0.9815771, 0, 1, 0, 0.9815771, 0, 0.191066, -5.800166, 3, 10.702123)
+size = Vector3(1, 5, 8.437622)
+material = ExtResource("2_uenhd")
+
+[node name="CSGBox3D8" type="CSGBox3D" parent="Woods" unique_id=407283882]
+transform = Transform3D(-0.66329944, 0, -0.74835396, 0, 1, 0, 0.74835396, 0, -0.66329944, -12.334133, 3, 9.624316)
+size = Vector3(1, 5, 5.426819)
+material = ExtResource("2_uenhd")
+
+[node name="CSGBox3D9" type="CSGBox3D" parent="Woods" unique_id=1050186609]
+transform = Transform3D(-0.9027054, 0, -0.430259, 0, 1, 0, 0.430259, 0, -0.9027054, -15.666037, 3, 5.2537313)
+size = Vector3(1, 5, 5.426819)
+material = ExtResource("2_uenhd")
+
+[node name="CSGBox3D10" type="CSGBox3D" parent="Woods" unique_id=356779066]
+transform = Transform3D(-0.9918832, 0, -0.12715119, 0, 1, 0, 0.12715119, 0, -0.9918832, -17.17165, 3, 0.07943344)
+size = Vector3(1, 5, 5.426819)
+material = ExtResource("2_uenhd")
+
+[node name="CSGBox3D11" type="CSGBox3D" parent="Woods" unique_id=1264945345]
+transform = Transform3D(-0.98212665, 0, 0.18822126, 0, 1, 0, -0.18822126, 0, -0.98212665, -16.988678, 3, -5.383189)
+size = Vector3(1, 5, 5.426819)
+material = ExtResource("2_uenhd")
+
+[node name="CSGBox3D12" type="CSGBox3D" parent="Woods" unique_id=1917215556]
+transform = Transform3D(-0.85404146, 0, 0.5202049, 0, 1, 0, -0.5202049, 0, -0.85404146, -15.0226345, 3, -10.465078)
+size = Vector3(1, 5, 5.426819)
+material = ExtResource("2_uenhd")
+
+[node name="CSGBox3D13" type="CSGBox3D" parent="Woods" unique_id=483058344]
+transform = Transform3D(-0.6712034, 0, 0.7412734, 0, 1, 0, -0.7412734, 0, -0.6712034, -11.549734, 3, -14.696532)
+size = Vector3(1, 5, 5.426819)
+material = ExtResource("2_uenhd")
