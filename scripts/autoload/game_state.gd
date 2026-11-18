@@ -1,5 +1,4 @@
 @tool
-class_name game_state
 extends Node
 
 var fatigue : int = 0
@@ -19,6 +18,12 @@ var _DEFAULT : Dictionary = {
 		},
 	"fatigue" : 0
 }
+
+func get_flag(key : String) -> Variant :
+	return flags.get(key) 
+	
+func set_flag(key : String, val : Variant) :
+	flags.set(key, val)
 
 func reset() -> void :
 	load_dictionary(_DEFAULT)

@@ -1,4 +1,4 @@
-@abstract class_name interactable_base
+@abstract class_name InteractableBase
 
 extends StaticBody3D
 

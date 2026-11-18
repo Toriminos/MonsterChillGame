@@ -1,4 +1,4 @@
-extends interactable_base
+extends InteractableBase
 
 @export var add_x_to_fatigue : int = 0
 

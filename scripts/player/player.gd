@@ -6,7 +6,7 @@ class_name Player
 @export var player_camera: Camera3D
 @export var player_mesh: CSGMesh3D
 @export var interaction_cast: RayCast3D
-@export var player_ui: player_ui_manager
+@export var player_ui: PlayerUiManager
 @export var inventory : Inventory
 
 @export_category("Checkbox")
@@ -81,7 +81,7 @@ func get_mouvement_direction() -> Vector3 :
 func interaction_management() -> void :
 	if interaction_cast.is_colliding():
 		var collider := interaction_cast.get_collider()
-		if collider is interactable_base :
+		if collider is InteractableBase :
 			player_ui.change_interactable_text(collider.display_interact_text())
 			if(Input.is_action_just_pressed("player_interaction") and collider.can_interact()):
 				collider.interact()

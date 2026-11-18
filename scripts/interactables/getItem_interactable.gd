@@ -1,6 +1,6 @@
-extends interactable_base
+extends InteractableBase
 
-@export var item_to_add : item_data
+@export var item_to_add : ItemData
 @export var quantity : int = 1
 
 func interact() -> void :

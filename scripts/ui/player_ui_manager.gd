@@ -1,11 +1,8 @@
 extends Control
-class_name player_ui_manager
+class_name PlayerUiManager
 
-@export var dialogue_manager : dialogue_manager
+@export var dialogue_manager : DialogueManager
 @export var interactable_text: Label
-
-func _ready() :
-	GameManager.playerUIManager = self
 
 func change_interactable_text(new_text : String) :
 	interactable_text.text = new_text

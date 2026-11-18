@@ -1,6 +1,6 @@
-extends interactable_base
+extends InteractableBase
 
-@export var dialogueRondPoint : dialogue_rondpoint
+@export var dialogueRondPoint : DialogueRondpoint
 
 func interact() -> void:
 	var dialogue_data : Dictionary = get_dialogue_data()
@@ -10,9 +10,9 @@ func interact() -> void:
 		print("Dialogue interactable : Couldn't find the dialogue file")
 
 func can_interact() -> bool:
-	var branche : dialogue_branch = dialogueRondPoint.get_actual_valid_branches_max_priority()
+	var branche : DialogueBranch = dialogueRondPoint.get_actual_valid_branches_max_priority()
 	return branche != null
 
 func get_dialogue_data() -> Dictionary :
-	var branche : dialogue_branch = dialogueRondPoint.get_actual_valid_branches_max_priority()
+	var branche : DialogueBranch = dialogueRondPoint.get_actual_valid_branches_max_priority()
 	return branche.get_dialogue_dictionnary()

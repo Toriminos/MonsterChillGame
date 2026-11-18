@@ -1,7 +1,7 @@
 @tool
-class_name condition_flag
+class_name ConditionFlag
 
-extends conditions
+extends Conditions
 
 @export var flags : String:
 	set(value) :
@@ -11,7 +11,7 @@ extends conditions
 @export var equal_to : bool
 
 func is_valid() -> bool:
-		return GameState.flags.get(flags) == equal_to
+		return GameState.get_flag(flags) == equal_to
 
 func _validate_property(property: Dictionary) -> void:
 	if property.name == "flags" :

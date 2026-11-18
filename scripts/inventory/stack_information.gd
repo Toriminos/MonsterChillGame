@@ -1,9 +1,9 @@
 extends Resource
-class_name stack_information
+class_name StackInformation
 
-var item : item_data
+var item : ItemData
 var current_quantity : int 
 
-func _init(itemToAdd : item_data, quantityToAdd : int) -> void :
-    self.item = itemToAdd
-    self.current_quantity = quantityToAdd
+func _init(itemToAdd : ItemData, quantityToAdd : int) -> void :
+	self.item = itemToAdd
+	self.current_quantity = quantityToAdd

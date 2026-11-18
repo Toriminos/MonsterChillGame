@@ -1,5 +1,5 @@
 @tool
-class_name dialogue_branch
+class_name DialogueBranch
 
 extends Resource
 @export var dialogues_path : String = "res://ressources/dialogues/"
@@ -9,7 +9,7 @@ extends Resource
 	set(value) :
 		dialogue_file_name = value
 		notify_property_list_changed()
-@export var conditions : Array[conditions]
+@export var conditions : Array[Conditions]
 
 func _validate_property(property: Dictionary) -> void:
 	if property.name == "dialogue_file_name" :

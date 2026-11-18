@@ -1,6 +1,6 @@
 extends MarginContainer
 
-class_name dialogue_manager
+class_name DialogueManager
 
 @export var dialogue_text: RichTextLabel
 @export var dialogue_cooldown: Timer
@@ -20,7 +20,7 @@ func _process(delta: float) -> void:
 func start_dialogue(dialogue_data) -> void:
 	_dialogue_data = dialogue_data
 	if _dialogue_data != {}:
-		GameManager.player.can_move = false
+		GameManager.toggle_player_mouvement(false)
 		self.visible = true
 		_in_dialogue = true
 		GameManager.toggle_player_interaction(false)
@@ -29,7 +29,7 @@ func start_dialogue(dialogue_data) -> void:
 		print("Dialogue interactable : Couldn't find the dialogue file")
 	
 func exit_dialogue() :
-	GameManager.player.can_move = true
+	GameManager.toggle_player_mouvement(true)
 	self.visible = false
 	_in_dialogue = false
 	GameManager.toggle_player_interaction(true)
@@ -45,9 +45,9 @@ func load_dialogue_via_id(dialogue_id : String, dialogue_data : Dictionary) -> b
 
 func _set_flags(flags_to_set : Dictionary) -> void :
 	for flg in flags_to_set.keys() :
-		if(GameState.flags.has(flg)):
-			GameState.flags.set(flg, flags_to_set.get(flg))
-			print("Dialogue interactable : flag change -> {0} set to {1}".format([flg, GameState.flags.get(flg)]))
+		if(GameState.get_flag(flg) != null):
+			GameState.set_flag(flg, flags_to_set.get(flg))
+			print("Dialogue interactable : flag change -> {0} set to {1}".format([flg, GameState.get_flag(flg)]))
 		else:
 			print("Dialogue interactable : Warning -> try to set flag {0}, but it doesn't exist".format([flg]))
 
